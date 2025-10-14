@@ -1,0 +1,90 @@
+/* ---------- Color Variables ---------- */
+:root {
+    --blue-primary: #0b3954;     /* main dark blue */
+    --blue-secondary: #1565c0;   /* lighter blue / headers */
+    --gold-primary: #b78329;     /* main gold */
+    --white: #fff;               /* pure white */
+    --black: #000;               /* pure black */
+}
+
+/* ---------- Table Styling ---------- */
+table {
+    border: 0.125rem solid var(--blue-secondary);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Header Cells */
+th {
+    background-color: var(--blue-secondary);
+    color: var(--white);
+    border: 0.125rem solid var(--blue-secondary);
+    padding: 0.5rem;
+}
+
+/* All Table Cells */
+td {
+    color: var(--white); /* ensures all text is readable */
+    border: 0.125rem solid var(--blue-secondary);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+/* Alternating Row Colors */
+tr:nth-of-type(odd) {
+    background-color: var(--gold-primary);
+}
+tr:nth-of-type(even) {
+    background-color: var(--blue-primary);
+}
+
+/* Hover Effect */
+tr:hover {
+    background-color: #f0f8ff;
+    color: var(--black);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Text Alignment for Specific Cells */
+.text {
+    text-align: left;
+}
+
+/* Responsive Mobile Table Styling */
+@media (max-width: 32.5rem) {
+    #special td, #special th {
+        display: block;
+        width: 100%;
+        color: var(--white);
+        background-color: var(--gold-primary);
+    }
+    #special th {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 0.625rem;
+        border: none;
+        overflow: hidden;
+    }
+    td.package::before { content: "Package: "; }
+    td.description::before { content: "Description: "; }
+    td.nights::before { content: "Nights: "; }
+    td.cost::before { content: "Cost: "; }
+    .package, .description, .nights, .cost {
+        width: 100%;
+        padding-left: 35%;
+        position: relative;
+        text-align: left;
+    }
+    td::before {
+        width: 25%;
+        display: block;
+        padding-right: 0.625rem;
+        position: absolute;
+        top: 0.375rem;
+        left: 1rem;
+        color: var(--blue-primary);
+        font-weight: bold;
+        white-space: nowrap;
+    }
+}
